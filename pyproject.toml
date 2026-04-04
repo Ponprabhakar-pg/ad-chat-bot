@@ -1,0 +1,12 @@
+[project]
+name = "adzymicai"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.14"
+dependencies = [
+    "adcp>=3.11.0",
+    "groq>=1.1.2",
+    "mcp>=1.27.0",
+    "nest-asyncio>=1.6.0",
+    "streamlit>=1.56.0",
+]
