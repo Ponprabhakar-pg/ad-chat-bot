@@ -98,4 +98,4 @@ Set your Groq API key in `app.py` or via `st.secrets["GROQ_API_KEY"]`.
 
 ## Test URL
 
-*To be added after deployment to Streamlit Community Cloud.*
+[https://ad-chat-bot.streamlit.app/](https://ad-chat-bot.streamlit.app/)
