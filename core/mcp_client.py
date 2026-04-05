@@ -3,11 +3,9 @@ import json
 import time
 import asyncio
 import logging
-import nest_asyncio
+import concurrent.futures
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
-
-nest_asyncio.apply()
 
 logger = logging.getLogger(__name__)
 
@@ -55,7 +53,9 @@ async def _call_tool_async(name: str, arguments: dict):
 
 
 def _run(coro):
-    return asyncio.get_event_loop().run_until_complete(coro)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+        future = pool.submit(asyncio.run, coro)
+        return future.result()
 
 
 def list_tools() -> list:
